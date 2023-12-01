@@ -11,7 +11,7 @@ A modern task management application designed to help you stay organized and pro
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original-wordmark.svg" width="30" height="30" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg" width="30" height="30" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original-wordmark.svg" width="30" height="30" /> 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/railways/railways-original-wordmark.svg" width="30" height="30" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/railway/railway-original-wordmark.svg" width="30" height="30" />
 </p> 
 
 ## Live Deployment
