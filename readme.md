@@ -4,7 +4,7 @@ A modern task management application designed to help you stay organized and pro
 ## Live Deployment
 
 The application is deployed live at: [Live URL](https://clinquant-nougat-f52198.netlify.app)
-The API is available at: [API Endpoint](https://expensive-boa-pajamas.cyclic.app/api-docs)
+The API is available at: [API Endpoint](http://127.0.0.1:5000/swagger)
 
 ## Table of Contents
 
