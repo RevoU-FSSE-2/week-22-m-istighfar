@@ -90,7 +90,9 @@ def login():
     user = User.query.filter_by(username=username).first()
     if not user or not bcrypt.check_password_hash(user.password, data['password']) or not user.verified:
         attempts = redis_client.incr(attempts_key)
-        redis_client.expire(attempts_key, 300) 
+        
+        if attempts == 1:
+            redis_client.expire(attempts_key, 300)
 
         if attempts >= 5:
             redis_client.set(locked_key, 'locked', ex=300)
