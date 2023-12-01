@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from redis import Redis
 from config import Config
 from extensions import mail, limiter
 from db import db, db_init
@@ -28,6 +29,7 @@ Talisman(app, content_security_policy={
 
 
 
+redis_client = Redis(host='localhost', port=6379, db=0)
 
 db.init_app(app)
 bcrypt.init_app(app)

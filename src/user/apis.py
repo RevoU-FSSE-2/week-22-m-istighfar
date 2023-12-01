@@ -22,7 +22,7 @@ class UpdateUserSchema(Schema):
 
 
 @user_blueprint.route('/create-user', methods=['POST'])
-@role_required(['ADMIN'])  # Assuming only admins can create users
+@role_required(['ADMIN'])  
 def create_user():
     schema = CreateUserSchema()
     try:
@@ -64,8 +64,7 @@ def update_user(user_id):
     user.username = data.get('username', user.username)
     user.email = data.get('email', user.email)
     if 'role' in data:
-        user.role = UserRole[data['role'].upper()]  # Handle role update
-
+        user.role = UserRole[data['role'].upper()]  
     db.session.commit()
     return jsonify({"message": "User updated successfully"}), 200
 
@@ -74,9 +73,8 @@ def update_user(user_id):
 @role_required(['ADMIN'])
 def delete_user(user_id):
     
-    # Decode the JWT from the Authorization header
     token = request.headers.get('Authorization').split()[1]
-    current_user_id = decode_jwt(token)['user_id']  # Assuming 'user_id' is in the JWT payload
+    current_user_id = decode_jwt(token)['user_id'] 
 
     if current_user_id == user_id:
         return jsonify({"error": "You cannot delete yourself"}), 400
@@ -85,7 +83,7 @@ def delete_user(user_id):
     if not user:
         return jsonify({"error": "User not found"}), 404
 
-    Task.query.filter_by(userId=user_id).delete()  # Delete related tasks
+    Task.query.filter_by(userId=user_id).delete()  
     db.session.delete(user)
     db.session.commit()
 
@@ -104,7 +102,7 @@ def list_users():
             "id" : user.id,
             "username": user.username,
             "email": user.email,
-            "role": user.role.name,  # Convert enum to string
+            "role": user.role.name,  
             "verified": user.verified,
             "pendingTask": pending_tasks,
             "completedTask": completed_tasks
@@ -112,5 +110,3 @@ def list_users():
 
     return jsonify({"users": users_data}), 200
 
-
-# Add other routes as needed

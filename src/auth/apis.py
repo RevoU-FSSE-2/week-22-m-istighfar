@@ -12,8 +12,6 @@ import hashlib
 
 auth_blp = Blueprint("auth", __name__)
 
-
-# Schemas
 class UserRegistrationSchema(Schema):
     username = fields.Str(required=True)
     email = fields.Email(required=True)
@@ -30,7 +28,6 @@ class PasswordResetRequestSchema(Schema):
 class PasswordResetSchema(Schema):
     new_password = fields.Str(required=True)
 
-# Routes
 @auth_blp.route("/register", methods=["POST"])
 def register():
     schema = UserRegistrationSchema()
@@ -97,10 +94,6 @@ def login():
 
     return jsonify({"token": token}), 200
 
-# Helper functions
-
-
-# Add other routes for password reset as needed
 @auth_blp.route("/request-password-reset", methods=["POST"])
 def request_password_reset():
     schema = PasswordResetRequestSchema()
@@ -129,13 +122,11 @@ def reset_password(reset_token):
     except ValidationError as err:
         return jsonify(err.messages), 400
 
-    # Find the user with the reset token and check if the token is still valid
     user = User.query.filter(User.reset_password_token == reset_token,
                              User.reset_password_expires > datetime.utcnow()).first()
     if not user:
         return jsonify({"error": "Invalid or expired reset token"}), 400
 
-    # Hash the new password and update the user's record
     hashed_password = bcrypt.generate_password_hash(data['new_password']).decode('utf-8')
     user.password = hashed_password
     user.reset_password_token = None
@@ -143,8 +134,4 @@ def reset_password(reset_token):
     db.session.commit()
 
     return jsonify({"message": "Password reset successfully"}), 200
-
-
-
-# Helper functions
 
