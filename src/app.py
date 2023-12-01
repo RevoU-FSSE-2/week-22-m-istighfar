@@ -19,17 +19,17 @@ app.config.from_object(Config)
 allowed_origins = ["http://localhost:5173", "https://clinquant-nougat-f52198.netlify.app"]
 CORS(app, resources={r"/*": {"origins": allowed_origins}})
 
-Talisman(app, content_security_policy={
+from flask_talisman import Talisman
+
+content_security_policy = {
     'default-src': '\'self\'',
     'img-src': ['\'self\'', 'data:'],
     'script-src': ['\'self\'', '\'unsafe-inline\''],
     'connect-src': ['\'self\'', 'http://127.0.0.1:5000']
-})
+}
 
+Talisman(app, content_security_policy=content_security_policy, force_https=False)
 
-
-
-redis_client = Redis(host='localhost', port=6379, db=0)
 
 db.init_app(app)
 bcrypt.init_app(app)
