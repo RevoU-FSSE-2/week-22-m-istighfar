@@ -24,6 +24,7 @@ The API is available at: [API Endpoint](http://127.0.0.1:5000/swagger)
 ## Key Features
 
 - **User Authentication**: Safeguard your tasks and information with our user authentication system.
+- **Enhanced Security with Login Rate Limiter**: Protect against brute-force attacks with a Redis-backed login rate limiter, ensuring secure access.
 - **Login & Register**: Sign up to start organizing, or log in to access your tasks.
 - **Secure Password Recovery**: Forget your password? Recover it securely.
 - **Task Management**: Add, view, and edit tasks with ease.
@@ -82,6 +83,7 @@ Ensure you have the following software installed:
 - **Flask**: A micro web framework written in Python.
 - **Flask Extensions**: Various Flask extensions like Flask-SQLAlchemy, Flask-Bcrypt, Flask-Cors, Flask-Mail, Flask-Limiter, Flask-Talisman, Flask-SeaSurf, and Flask-Swagger-UI.
 - **SQLAlchemy**: An ORM (Object-Relational Mapper) library for Python.
+- **Redis**: An in-memory data structure store used as a database, cache, and message broker, particularly for implementing rate limiting in user authentication.
 - **Psycopg2-binary**: A PostgreSQL adapter for Python.
 - **PyJWT**: A Python library to work with JSON Web Tokens.
 - **Marshmallow**: A library for complex data serialization and deserialization.
@@ -96,7 +98,7 @@ The API is available at: [API Endpoint](https://expensive-boa-pajamas.cyclic.app
 |--------|-----------------------------------|-----------------------------------------|
 | POST   | /auth/register                    | Register a new user                      |
 | GET    | /auth/verify-email/{token}        | Verify user's email address             |
-| POST   | /auth/login                       | Login user                               |
+| POST   | /auth/login                       | Login user with redis rate limit                           |
 | POST   | /auth/refreshToken                | Refresh the access token                 |
 | POST   | /auth/request-password-reset      | Request a password reset email           |
 | POST   | /auth/reset-password/{resetToken} | Reset user's password with a given token |
