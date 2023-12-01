@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from app import db, bcrypt, limiter
+from extensions import redis_client
 from user.models import User, UserRole
 from marshmallow import Schema, fields, ValidationError
 from services.email_service import send_verification_email, send_password_reset_email
@@ -72,7 +73,6 @@ def verify_email(token):
     return jsonify({"message": "Account verified successfully"}), 200
 
 @auth_blp.route("/login", methods=["POST"])
-@limiter.limit("5 per 5 minute")
 def login():
     schema = UserLoginSchema()
     try:
@@ -80,12 +80,27 @@ def login():
     except ValidationError as err:
         return jsonify(err.messages), 400
 
-    user = User.query.filter_by(username=data['username']).first()
-    if not user or not bcrypt.check_password_hash(user.password, data['password']):
-        return jsonify({"error": "Invalid username or password"}), 401
+    username = data['username']
+    locked_key = f"login:locked:{username}"
+    attempts_key = f"login:attempts:{username}"
 
-    if not user.verified:
-        return jsonify({"error": "Email not verified"}), 401
+    if redis_client.get(locked_key):
+        return jsonify({"error": "Account locked due to too many failed login attempts"}), 403
+
+    user = User.query.filter_by(username=username).first()
+    if not user or not bcrypt.check_password_hash(user.password, data['password']) or not user.verified:
+        attempts = redis_client.incr(attempts_key)
+        redis_client.expire(attempts_key, 300) 
+
+        if attempts >= 5:
+            redis_client.set(locked_key, 'locked', ex=300)
+
+        if not user.verified:
+            return jsonify({"error": "Email not verified"}), 401
+        else:
+            return jsonify({"error": "Invalid username or password"}), 401
+        
+    redis_client.delete(attempts_key)
 
     token = jwt.encode({
         'user_id': user.id,
@@ -93,6 +108,7 @@ def login():
     }, os.getenv('SECRET_KEY'), algorithm='HS256')
 
     return jsonify({"token": token}), 200
+
 
 @auth_blp.route("/request-password-reset", methods=["POST"])
 def request_password_reset():

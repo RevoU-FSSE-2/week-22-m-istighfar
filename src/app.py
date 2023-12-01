@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from redis import Redis
 from config import Config
-from extensions import mail, limiter
+from extensions import mail, limiter, redis_client
 from db import db, db_init
 from common.bcrypt import bcrypt
 from auth.apis import auth_blp
