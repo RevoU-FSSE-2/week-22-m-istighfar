@@ -18,7 +18,14 @@ app.config.from_object(Config)
 allowed_origins = ["http://localhost:5173", "https://clinquant-nougat-f52198.netlify.app"]
 CORS(app, resources={r"/*": {"origins": allowed_origins}})
 
-Talisman(app)
+Talisman(app, content_security_policy={
+    'default-src': '\'self\'',
+    'img-src': ['\'self\'', 'data:'],
+    'script-src': ['\'self\'', '\'unsafe-inline\''],
+    'connect-src': ['\'self\'', 'http://127.0.0.1:5000']
+})
+
+
 
 
 
@@ -34,7 +41,7 @@ swaggerui_blueprint = get_swaggerui_blueprint(
     SWAGGER_URL,  
     API_URL,
     config={  
-        'app_name': "Task Geass API"
+        'app_name': "Task Geass APIs"
     }
 )
 
