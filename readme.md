@@ -16,7 +16,8 @@ A modern task management application designed to help you stay organized and pro
 ## Live Deployment
 
 The application is deployed live at: [Live URL](https://clinquant-nougat-f52198.netlify.app)
-The API is available at: [API Endpoint](http://34.126.184.177/swagger/)
+The API is available live at: [Swagger API Documentation](http://34.126.184.177/swagger/)
+Postman is available at: [Postman API Documentation](https://documenter.getpostman.com/view/28996754/2s9YeK3pdX)
 
 ## Table of Contents
 
