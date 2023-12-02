@@ -60,6 +60,16 @@ def update_user(user_id):
     user = User.query.get(user_id)
     if not user:
         return jsonify({"error": "User not found"}), 404
+    
+    new_username = data.get('username', user.username)
+    new_email = data.get('email', user.email)
+
+    existing_user = User.query.filter(
+        (User.id != user_id) &
+        ((User.username == new_username) | (User.email == new_email))
+    ).first()
+    if existing_user:
+        return jsonify({"error": "Username or Email already in use by another user"}), 400
 
     user.username = data.get('username', user.username)
     user.email = data.get('email', user.email)
