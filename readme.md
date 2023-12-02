@@ -15,9 +15,9 @@ A modern task management application designed to help you stay organized and pro
 
 ## Live Deployment
 
-The application is deployed live at: [Live URL](https://clinquant-nougat-f52198.netlify.app)
-The API is available live at: [Swagger API Documentation](http://34.126.184.177/swagger/)
-Postman is available at: [Postman API Documentation](https://documenter.getpostman.com/view/28996754/2s9YeK3pdX)
+- [Task Geass App](https://clinquant-nougat-f52198.netlify.app) - Frontend application.
+- [Swagger API Documentation](http://34.126.184.177/swagger/) - Backend API documentation.
+- [Postman API Documentation](https://documenter.getpostman.com/view/28996754/2s9YeK3pdX) - Postman collection for API testing.
 
 ## Table of Contents
 
@@ -72,6 +72,10 @@ Ensure you have the following software installed:
    ```
    pipenv shell
    ```
+5. Set up environment variables:**
+   - Copy `.env.example` to a new file named `.env` in the `src` directory.
+   - Modify the `.env` file with your specific configurations.
+
 5. Start the Flask development server:
    ```
    flask run
@@ -80,32 +84,12 @@ Ensure you have the following software installed:
 
 
 ## Tech Stack
-
-### Frontend:
-
-- **React**: A JavaScript library for building user interfaces.
-- **React Router DOM**: A collection of navigational components that compose declaratively with your app.
-- **Ant Design**: A design system with values of Nature and Determinacy for better user experience of enterprise applications.
-- **Vite**: An opinionated web dev build tool that serves your code via native ES modules.
-- **TypeScript**: Superset of JavaScript that compiles to clean JavaScript output, adding optional static 
-- **Moment.js**: Rich, comprehensive time & date utility library.
-- **vite-plugin-pwa**: Vite plugin to add PWA capabilities to your project.
-
-### Backend:
-
-- **Flask**: A micro web framework written in Python.
-- **Flask Extensions**: Various Flask extensions like Flask-SQLAlchemy, Flask-Bcrypt, Flask-Cors, Flask-Mail, Flask-Limiter, Flask-Talisman, Flask-SeaSurf, and Flask-Swagger-UI.
-- **SQLAlchemy**: An ORM (Object-Relational Mapper) library for Python.
-- **Redis**: An in-memory data structure store used as a database, cache, and message broker, particularly for implementing rate limiting in user authentication.
-- **Psycopg2-binary**: A PostgreSQL adapter for Python.
-- **PyJWT**: A Python library to work with JSON Web Tokens.
-- **Marshmallow**: A library for complex data serialization and deserialization.
-- **Faker**: A library for generating fake data.
-- **Gunicorn**: A Python WSGI HTTP server for UNIX.
+- **Frontend**: React, React Router DOM, Ant Design, Vite, TypeScript, Moment.js, vite-plugin-pwa.
+- **Backend**: Flask, various Flask extensions, SQLAlchemy, Redis, Psycopg2-binary, PyJWT, Marshmallow, Faker, Gunicorn.
+- **Database**: PostgreSQL.
+- **DevOps**: Docker, Google Cloud Platform.
 
 ## API Endpoint
-
-The API is available at: [API Endpoint](https://expensive-boa-pajamas.cyclic.app/api-docs)
 
 | Method | Endpoint                          | Description                             |
 |--------|-----------------------------------|-----------------------------------------|
