@@ -124,7 +124,7 @@ paths:
           description: ''
       security:
         - bearerAuth: []
-  //auth/request-password-reset:
+  /auth/request-password-reset:
     post:
       tags:
         - auth
