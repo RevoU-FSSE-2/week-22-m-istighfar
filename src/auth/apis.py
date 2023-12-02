@@ -134,7 +134,9 @@ def request_password_reset():
 
         send_password_reset_email(data['email'], reset_token)
 
-    return jsonify({"message": "If the email is associated with an account, a password reset link will be sent."}), 200
+        return jsonify({"message": "If the email is associated with an account, a password reset link will be sent."}), 200
+    else:
+        return jsonify({"error": "No account associated with this email"}), 404
 
 @auth_blp.route("/reset-password/<reset_token>", methods=["POST"])
 def reset_password(reset_token):
