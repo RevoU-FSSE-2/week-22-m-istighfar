@@ -40,6 +40,11 @@ def register():
     existing_user = User.query.filter_by(username=data['username']).first()
     if existing_user:
         return jsonify({"error": "User already exists"}), 400
+    
+    existing_email = User.query.filter_by(email=data['email']).first()
+    if existing_email:
+        return jsonify({"error": "Email already registered"}), 400
+
 
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
     verification_token = hashlib.sha256(os.urandom(32)).hexdigest()
