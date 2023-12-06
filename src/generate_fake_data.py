@@ -1,55 +1,44 @@
-from flask_bcrypt import Bcrypt
 from faker import Faker
-from app import db, app
-from user.models import User, UserRole
-from tweet.models import Tweet
-from following.models import Following
 import random
+from app import db  
+from user.models import User, UserRole  
+from task.models import Task  
+
 
 fake = Faker()
-bcrypt = Bcrypt()
 
-def create_fake_users(num_users=30):
-    users = []
-    for _ in range(num_users):
+def create_fake_users(count=10):
+    for _ in range(count):
         user = User(
             username=fake.user_name(),
             email=fake.email(),
-            password=bcrypt.generate_password_hash("password123").decode('utf-8'),
-            bio=fake.text(max_nb_chars=200),
-            role=random.choice([UserRole.USER, UserRole.MODERATOR])
+            password=fake.password(),
+            role=random.choice([UserRole.ADMIN, UserRole.USER]),
+            verified=True,
         )
         db.session.add(user)
-        users.append(user)
-    db.session.commit()
-    return users
-  
-def create_fake_tweets(users, num_tweets=200):
-    for _ in range(num_tweets):
-        tweet = Tweet(
-            user_id=random.choice(users).id,
-            content=fake.text(max_nb_chars=150),
-            is_spam=random.choice([True, False])
-        )
-        db.session.add(tweet)
     db.session.commit()
 
-def create_fake_followings(users, num_followings=100):
-    for _ in range(num_followings):
-        follower = random.choice(users)
-        following = random.choice(users)
-        if follower != following:
-            follow = Following(
-                user_id=follower.id,
-                following_user_id=following.id
-            )
-            db.session.add(follow)
+def create_fake_tasks(count=100):
+    user_ids = [user.id for user in User.query.all()]
+    for _ in range(count):
+        task = Task(
+            title=fake.sentence(),
+            description=fake.text(),
+            priority=random.choice(["high", "medium", "low"]),
+            status=random.choice(["pending", "completed"]),
+            dueDate=fake.future_date(end_date="+30d"),  
+            createdAt=fake.past_date(start_date="-30d"),  
+            updatedAt=fake.past_date(start_date="-30d"),  
+            userId=random.choice(user_ids)
+        )
+        db.session.add(task)
     db.session.commit()
+
 
 def generate_fake_data():
-    users = create_fake_users()
-    create_fake_tweets(users)
-    create_fake_followings(users)
-
-    with app.app_context(): 
-        generate_fake_data()
+    print("Generating fake users...")
+    create_fake_users(50)  
+    print("Generating fake tasks...")
+    create_fake_tasks(200)  
+    print("Fake data generation completed.")

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Be a Hero - Donate Blood</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* You can add custom styles here or use inline styles within your HTML */
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-700 font-sans leading-normal">
+    <!-- Navigation -->
+    <header class="bg-white shadow">
+      <div class="container mx-auto px-6 py-4">
+        <nav class="flex justify-between items-center">
+          <div class="text-3xl font-bold text-red-600">BloodHero</div>
+          <div class="space-x-4 text-red-600">
+            <a href="#" class="hover:text-red-800">Home</a>
+            <a href="#how-it-works" class="hover:text-red-800">How it Works</a>
+            <a href="#testimonials" class="hover:text-red-800">Testimonials</a>
+            <a href="#faq" class="hover:text-red-800">FAQ</a>
+            <a href="#contact" class="hover:text-red-800">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="text-center py-20 bg-red-600 text-white">
+      <h1 class="font-extrabold text-5xl pb-4">Save Lives Today</h1>
+      <p class="text-xl pb-8 mx-auto leading-relaxed max-w-xl">
+        Your contribution is vital for our mission to help those in need. Join
+        our community and make a difference with your donation.
+      </p>
+      <a
+        href="#schedule"
+        class="bg-white text-red-600 font-bold py-3 px-8 rounded-full shadow hover:shadow-lg transition duration-300"
+        >Donate Now</a
+      >
+    </section>
+
+    <!-- How it Works Section -->
+    <section id="how-it-works" class="container mx-auto my-20">
+      <h2 class="text-4xl text-center font-bold mb-12">How It Works</h2>
+      <div class="flex flex-wrap justify-center gap-10">
+        <!-- Step 1 -->
+        <div class="w-full md:w-1/3 text-center">
+          <div class="text-6xl text-red-600">1</div>
+          <h3 class="text-xl font-semibold my-4">Register</h3>
+          <p class="text-gray-600">
+            Sign up through our website and join the list of heroes who have
+            decided to make a difference.
+          </p>
+        </div>
+        <!-- Step 2 -->
+        <div class="w-full md:w-1/3 text-center">
+          <div class="text-6xl text-red-600">2</div>
+          <h3 class="text-xl font-semibold my-4">Schedule</h3>
+          <p class="text-gray-600">
+            Choose a time and place that works for you to donate blood and save
+            lives.
+          </p>
+        </div>
+        <!-- Step 3 -->
+        <div class="w-full md:w-1/3 text-center">
+          <div class="text-6xl text-red-600">3</div>
+          <h3 class="text-xl font-semibold my-4">Donate</h3>
+          <p class="text-gray-600">
+            Visit the donation center and our friendly staff will guide you
+            through the safe and quick donation process.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="bg-gray-100 py-20">
+      <div class="container mx-auto">
+        <h2 class="text-4xl text-center font-bold mb-12">What Donors Say</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <blockquote class="bg-white p-8 shadow rounded">
+            <p class="mb-4">
+              "After my first time donating blood, I realized how simple it is
+              to help others in need. It's been a rewarding experience."
+            </p>
+            <cite class="block text-right font-semibold">- Alex Smith</cite>
+          </blockquote>
+          <blockquote class="bg-white p-8 shadow rounded">
+            <p class="mb-4">
+              "The staff was so supportive and the process was straightforward.
+              I feel proud to be a part of this great cause."
+            </p>
+            <cite class="block text-right font-semibold">- Maria Garcia</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container mx-auto my-20">
+      <h2 class="text-4xl text-center font-bold mb-12">
+        Frequently Asked Questions
+      </h2>
+      <div class="max-w-4xl mx-auto">
+        <!-- You can add more FAQs here -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-2">Who can donate blood?</h3>
+          <p class="text-gray-600">
+            Most people in good health, who are at least 17 years old and weigh
+            at least 110 pounds, can donate blood.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mx-auto my-20">
+      <h2 class="text-4xl text-center font-bold mb-12">Get in Touch</h2>
+      <div class="max-w-lg mx-auto">
+        <form action="#" method="POST">
+          <input
+            type="text"
+            placeholder="Name"
+            class="block w-full p-4 mb-4 rounded border border-gray-300"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            class="block w-full p-4 mb-4 rounded border border-gray-300"
+          />
+          <textarea
+            placeholder="Your Message"
+            class="block w-full p-4 mb-4 rounded border border-gray-300"
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full bg-red-600 text-white p-4 rounded hover:bg-red-700 transition duration-300"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Live Donation Feed Section -->
+    <section class="container mx-auto my-20">
+      <h2 class="text-4xl text-center font-bold mb-12">Live Donation Feed</h2>
+      <div class="flex flex-wrap justify-center gap-10">
+        <!-- Live Feed Item -->
+        <div class="w-full md:w-1/3 bg-white shadow rounded-lg p-6">
+          <h3 class="text-xl font-semibold mb-2">John Doe</h3>
+          <p class="text-gray-600">
+            Just donated at Central Hospital - 15 minutes ago
+          </p>
+        </div>
+        <!-- Repeat for more live feed items -->
+      </div>
+    </section>
+
+    <!-- Donation Centers Map Section -->
+    <section class="my-20">
+      <h2 class="text-4xl text-center font-bold mb-12">
+        Find a Donation Center Near You
+      </h2>
+      <div class="container mx-auto">
+        <iframe
+          class="w-full h-96"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..."
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        >
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="bg-gray-100 py-20">
+      <div class="container mx-auto">
+        <h2 class="text-4xl text-center font-bold mb-12">Upcoming Events</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Event Item -->
+          <div class="bg-white p-6 shadow rounded">
+            <h3 class="text-xl font-semibold mb-2">
+              City Marathon Blood Drive
+            </h3>
+            <p class="text-gray-600 mb-4">March 20, 2023, at the City Park</p>
+            <a href="#" class="text-red-600 hover:underline">Learn more</a>
+          </div>
+          <!-- Repeat for more events -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Subscription Section -->
+    <section class="container mx-auto my-20 text-center">
+      <h2 class="text-4xl font-bold mb-6">Stay Updated</h2>
+      <p class="mb-8 text-gray-600 max-w-md mx-auto">
+        Subscribe to our newsletter to receive the latest news and updates about
+        our blood donation activities and events.
+      </p>
+      <form class="flex justify-center items-center">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="p-3 rounded-l-full"
+        />
+        <button
+          type="submit"
+          class="px-6 py-3 bg-red-600 text-white rounded-r-full hover:bg-red-700 transition duration-300"
+        >
+          Subscribe
+        </button>
+      </form>
+    </section>
+
+    <!-- Donor Stories Section -->
+    <section id="donor-stories" class="py-20 bg-white">
+      <div class="container mx-auto">
+        <h2 class="text-4xl text-center font-bold mb-12">Stories of Heroes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Story Card -->
+          <div class="max-w-sm rounded overflow-hidden shadow-lg mx-auto mb-6">
+            <img
+              class="w-full"
+              src="/path-to-your-image.jpg"
+              alt="Donor Image"
+            />
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">Jane Doe</div>
+              <p class="text-gray-700 text-base">
+                "Donating blood was one of the most fulfilling things I've done.
+                It feels great to know you can make such a big difference."
+              </p>
+            </div>
+          </div>
+          <!-- Repeat for other stories -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive FAQ Section -->
+    <section id="faq" class="py-20">
+      <div class="container mx-auto">
+        <h2 class="text-4xl text-center font-bold mb-12">
+          Frequently Asked Questions
+        </h2>
+        <div class="max-w-2xl mx-auto">
+          <!-- FAQ Item -->
+          <div class="mb-5">
+            <h3 class="text-lg font-semibold text-red-600 mb-2">
+              Can anyone donate blood?
+            </h3>
+            <p class="hidden text-gray-600">
+              Most people can donate blood if they are in good health. Click
+              here for more eligibility information.
+            </p>
+          </div>
+          <!-- Repeat for other FAQ items -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Blood Stock Indicator -->
+    <section id="blood-stock" class="py-20 bg-gray-100">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-6">Current Blood Stock</h2>
+        <div class="flex justify-center items-center">
+          <!-- Blood Type Indicator -->
+          <div class="mx-4">
+            <div class="text-2xl font-semibold">A+</div>
+            <div
+              class="w-32 h-32 bg-white rounded-full shadow-md inline-flex items-center justify-center"
+            >
+              <div class="text-lg font-bold">70%</div>
+            </div>
+          </div>
+          <!-- Repeat for other blood types -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media Feed -->
+    <section id="social-media" class="py-20">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-6">Connect With Us</h2>
+        <!-- Social Media Content -->
+        <!-- Consider using a third-party service or your backend to pull in this content -->
+      </div>
+    </section>
+
+    <!-- Volunteer Sign-up Form -->
+    <section id="volunteer" class="py-20 bg-white">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-6">Become a Volunteer</h2>
+        <form action="#" method="post" class="max-w-md mx-auto">
+          <input
+            type="text"
+            placeholder="Full Name"
+            class="block w-full p-4 mb-4 rounded border border-gray-300"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email Address"
+            class="block w-full p-4 mb-4 rounded border border-gray-300"
+            required
+          />
+          <textarea
+            placeholder="Why would you like to volunteer?"
+            class="block w-full p-4 mb-4 rounded border border-gray-300"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full bg-red-600 text-white p-4 rounded hover:bg-red-700 transition duration-300"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white text-center py-8">
+      <p class="text-gray-600">© 2023 BloodHero. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
